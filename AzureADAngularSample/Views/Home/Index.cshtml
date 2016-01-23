@@ -1,0 +1,48 @@
+﻿@{
+	Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+	<meta name="viewport" content="width=device-width" />
+	<title>Index</title>
+	<style>
+		body {
+			font-family: 'Segoe UI';
+		}
+	</style>
+</head>
+<body ng-app="AzureADAngularSample">
+<div>
+	Hello @(Model.MVC == "" ? "Anonymous" : Model.MVC) from MVC
+
+</div>
+	<div>
+		Hello @(Model.Service == "" ? "Anonymous" : Model.Service) from Service
+
+	</div>
+
+
+	<script type="text/ng-template" id="test">
+		<h2>{{vm.title}}</h2>
+		<button ng-click="vm.callService()">Test</button>
+		<h3>Results</h3>
+		<div ng-repeat="result in vm.results">
+			{{result}}
+		</div>
+	</script>
+
+
+
+	<test url="/servicetest" title="Calling Service"></test>
+
+<test url="https://jakeazureadtestservice.azurewebsites.net/ServiceTest" title="Calling External Service"></test>
+
+	<test url="/doubleHopServiceTest" title="Double Hop Service"></test>
+
+<script src="~/scripts/angular.min.js"> </script>
+	<script src="~/scripts/app.js"> </script>
+</body>
+</html>
