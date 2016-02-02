@@ -20,13 +20,13 @@ namespace AzureADAngularSample.Controllers
 			//string json = new WebClient() {Credentials = CredentialCache.DefaultNetworkCredentials}.DownloadString("https://localhost:44301/ServiceTest");
 			//List<string> messages = JsonConvert.DeserializeObject<List<String>>(json);
 
-			//List<string> messages = await new Service().CallServiceAsApp();
+			List<string> messages = await new Service().CallServiceAsApp();
 			
 
 			dynamic model = new ExpandoObject();
 	        model.MVC = User.Identity.Name;
-			//model.Service = messages[0];
-	        model.Service = "TBD";
+			model.Service = messages[0];
+	        //model.Service = "TBD";
 
 
 			return View(model);

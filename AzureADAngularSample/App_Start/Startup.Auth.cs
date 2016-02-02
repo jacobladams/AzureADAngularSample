@@ -14,6 +14,7 @@ using Microsoft.IdentityModel.Clients.ActiveDirectory;
 using System.Threading.Tasks;
 using System.Security.Claims;
 using AzureADAngularSample.Utils;
+using Microsoft.IdentityModel.Protocols;
 using Microsoft.Owin.Security.ActiveDirectory;
 
 namespace AzureADAngularSample
@@ -52,7 +53,6 @@ namespace AzureADAngularSample
 					ClientId = clientId,
 					Authority = Authority,
 					//PostLogoutRedirectUri = postLogoutRedirectUri,
-
 					Notifications = new OpenIdConnectAuthenticationNotifications()
 					{
 						//

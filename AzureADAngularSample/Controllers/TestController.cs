@@ -33,7 +33,7 @@ namespace AzureADAngularSample.Controllers
 		{
 			//string json = new WebClient() { Credentials = CredentialCache.DefaultNetworkCredentials }.DownloadString("https://localhost:44301/ServiceTest");
 			//List<string> messages = JsonConvert.DeserializeObject<List<String>>(json);
-			List<string> messages = await new Service().CallService();
+			List<string> messages = await new Service().CallServiceAsApp();
 			string user = User.Identity.Name == string.Empty ? "Anonymous" : User.Identity.Name;
 			return new List<string>
 			{
