@@ -35,50 +35,50 @@ namespace AzureADAngularSample.Service
 				{
 					Audience = ConfigurationManager.AppSettings["ida:Audience"],
 					Tenant = ConfigurationManager.AppSettings["ida:Tenant"],
-					
-				});
-
-
-
-			app.SetDefaultSignInAsAuthenticationType(CookieAuthenticationDefaults.AuthenticationType);
-
-			app.UseCookieAuthentication(new CookieAuthenticationOptions());
-
-			app.UseOpenIdConnectAuthentication(
-				new OpenIdConnectAuthenticationOptions
-				{
-					ClientId = clientId,
-					Authority = Authority,
-					//PostLogoutRedirectUri = postLogoutRedirectUri,
-
-					//Notifications = new OpenIdConnectAuthenticationNotifications()
-					//{
-					//	//
-					//	// If there is a code in the OpenID Connect response, redeem it for an access token and refresh token, and store those away.
-					//	//
-					//	AuthorizationCodeReceived = (context) =>
-					//	{
-					//		var code = context.Code;
-
-					//		ClientCredential credential = new ClientCredential(clientId, appKey);
-					//		string userObjectID = context.AuthenticationTicket.Identity.FindFirst("http://schemas.microsoft.com/identity/claims/objectidentifier").Value;
-					//		//AuthenticationContext authContext = new AuthenticationContext(Authority, new NaiveSessionCache(userObjectID));
-					//		AuthenticationContext authContext = new AuthenticationContext(Authority);
-					//		//AuthenticationResult result = authContext.AcquireTokenByAuthorizationCode(code, new Uri(HttpContext.Current.Request.Url.GetLeftPart(UriPartial.Path)), credential, graphResourceId);
-
-					//		return Task.FromResult(0);
-					//	},
-
-					//	AuthenticationFailed = context =>
-					//	{
-					//		context.HandleResponse();
-					//		context.Response.Redirect("/Home/Error?message=" + context.Exception.Message);
-					//		return Task.FromResult(0);
-					//	}
-
-					//}
 
 				});
+
+
+
+			//app.SetDefaultSignInAsAuthenticationType(CookieAuthenticationDefaults.AuthenticationType);
+
+			//app.UseCookieAuthentication(new CookieAuthenticationOptions());
+
+			//app.UseOpenIdConnectAuthentication(
+			//	new OpenIdConnectAuthenticationOptions
+			//	{
+			//		ClientId = clientId,
+			//		Authority = Authority,
+			//		//PostLogoutRedirectUri = postLogoutRedirectUri,
+
+			//		//Notifications = new OpenIdConnectAuthenticationNotifications()
+			//		//{
+			//		//	//
+			//		//	// If there is a code in the OpenID Connect response, redeem it for an access token and refresh token, and store those away.
+			//		//	//
+			//		//	AuthorizationCodeReceived = (context) =>
+			//		//	{
+			//		//		var code = context.Code;
+
+			//		//		ClientCredential credential = new ClientCredential(clientId, appKey);
+			//		//		string userObjectID = context.AuthenticationTicket.Identity.FindFirst("http://schemas.microsoft.com/identity/claims/objectidentifier").Value;
+			//		//		//AuthenticationContext authContext = new AuthenticationContext(Authority, new NaiveSessionCache(userObjectID));
+			//		//		AuthenticationContext authContext = new AuthenticationContext(Authority);
+			//		//		//AuthenticationResult result = authContext.AcquireTokenByAuthorizationCode(code, new Uri(HttpContext.Current.Request.Url.GetLeftPart(UriPartial.Path)), credential, graphResourceId);
+
+			//		//		return Task.FromResult(0);
+			//		//	},
+
+			//		//	AuthenticationFailed = context =>
+			//		//	{
+			//		//		context.HandleResponse();
+			//		//		context.Response.Redirect("/Home/Error?message=" + context.Exception.Message);
+			//		//		return Task.FromResult(0);
+			//		//	}
+
+			//		//}
+
+			//	});
 		}
 	}
 }
