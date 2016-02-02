@@ -43,6 +43,31 @@
 
 	<test url="/doubleHopServiceTest" title="Double Hop Service"></test>
 
+
+
+
+	<script>
+		
+		var endpoints = {
+			"https://yourhost/api": "b6a68585-5287-45b2-ba82-383ba1f60932",
+		};
+	
+
+
+		var adalConfigOptions = {
+			instance: 'https://login.microsoftonline.com/',
+			tenant: '@ConfigurationManager.AppSettings["ida:Tenant"]',
+			clientId: '@ConfigurationManager.AppSettings["ida:ClientId"]',
+			extraQueryParameter: 'nux=1',
+			@*endPoints: {
+				'@ConfigurationManager.AppSettings["SeviceUrl"]': '@ConfigurationManager.AppSettings["ServiceResourceId"]'
+			}*@
+
+
+
+			//cacheLocation: 'localStorage', // enable this for IE, as sessionStorage does not work for localhost.
+		}
+	</script>
 <script src="~/scripts/angular.min.js"> </script>
 	<script src="~/scripts/app.js"> </script>
 </body>
