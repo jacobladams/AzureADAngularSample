@@ -4,8 +4,10 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Security.Principal;
+using System.Threading.Tasks;
 using System.Web.Http;
 using System.Web.Http.Routing;
+using AzureADAngularSample.Models;
 using Newtonsoft.Json;
 
 namespace AzureADAngularSample.Controllers
@@ -14,6 +16,7 @@ namespace AzureADAngularSample.Controllers
     {
 		[Route("ServiceTest")]
 		[HttpGet]
+		[Authorize]
 		public List<string> ServiceTest()
 		{
 			string user = User.Identity.Name == string.Empty ? "Anonymous" : User.Identity.Name;
@@ -25,10 +28,12 @@ namespace AzureADAngularSample.Controllers
 
 		[Route("DoubleHopServiceTest")]
 		[HttpGet]
-		public List<string> DoubleHopServiceTest()
+		[Authorize]
+		public async Task<List<string>> DoubleHopServiceTest()
 		{
-			string json = new WebClient() { Credentials = CredentialCache.DefaultNetworkCredentials }.DownloadString("https://jakeazureadtestservice.azurewebsites.net/ServiceTest");
-			List<string> messages = JsonConvert.DeserializeObject<List<String>>(json);
+			//string json = new WebClient() { Credentials = CredentialCache.DefaultNetworkCredentials }.DownloadString("https://localhost:44301/ServiceTest");
+			//List<string> messages = JsonConvert.DeserializeObject<List<String>>(json);
+			List<string> messages = await new Service().CallService();
 			string user = User.Identity.Name == string.Empty ? "Anonymous" : User.Identity.Name;
 			return new List<string>
 			{

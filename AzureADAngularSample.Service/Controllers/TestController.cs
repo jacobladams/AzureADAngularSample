@@ -13,6 +13,7 @@ namespace AzureADAngularSample.Controllers
     {
 		[Route("ServiceTest")]
 		[HttpGet]
+		[Authorize]
 		public List<string> ServiceTest()
 		{
 			string user = User.Identity.Name == string.Empty ? "Anonymous" : User.Identity.Name;
